@@ -9,12 +9,12 @@ enum NetworkError: Error {
     case decodingError(Error)
 }
 
-protocol NetworkService {
+public protocol NetworkService {
     
     func execute<Model: Decodable>(url: URL, completion: @escaping ((Result<Model, Error>) -> Void))
 }
 
-struct NetworkSerivceImpl: NetworkService {
+public struct NetworkSerivceImpl: NetworkService {
     
     let session: URLSession
     let decoder: JSONDecoder
@@ -52,7 +52,7 @@ struct NetworkSerivceImpl: NetworkService {
     }
 }
 
-struct AFNetworkServiceImpl: NetworkService {
+public struct AFNetworkServiceImpl: NetworkService {
     
     func execute<Model>(url: URL, completion: @escaping ((Result<Model, Error>) -> Void)) where Model : Decodable {
         
