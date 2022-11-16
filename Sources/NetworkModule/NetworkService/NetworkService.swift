@@ -19,7 +19,7 @@ public struct NetworkSerivceImpl: NetworkService {
     let session: URLSession
     let decoder: JSONDecoder
     
-    public init(session: URLSession.shared, decoder: decoder) {
+    public init(session: URLSession, decoder: JSONDecoder) {
         self.session = session
         self.decoder = decoder
     }
