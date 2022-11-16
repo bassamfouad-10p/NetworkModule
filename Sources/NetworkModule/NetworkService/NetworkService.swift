@@ -1,7 +1,7 @@
 import Foundation
 import Alamofire
 
-enum NetworkError: Error {
+public enum NetworkError: Error {
     
     case transportError(Error)
     case serverError(Int)

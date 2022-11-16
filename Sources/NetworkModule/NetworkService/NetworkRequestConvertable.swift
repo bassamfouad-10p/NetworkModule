@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol NetworkRequestConvertable {
+public protocol NetworkRequestConvertable {
     
     typealias RequestParameters = [String: String]
     
