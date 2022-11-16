@@ -19,6 +19,11 @@ public struct NetworkSerivceImpl: NetworkService {
     let session: URLSession
     let decoder: JSONDecoder
     
+    public init(session: URLSession.shared, decoder: decoder) {
+        self.session = session
+        self.decoder = decoder
+    }
+    
     public func execute<Model: Decodable>(url: URL, completion: @escaping ((Result<Model, Error>) -> Void)) {
         
         session.dataTask(with: url) { data , response, error in
