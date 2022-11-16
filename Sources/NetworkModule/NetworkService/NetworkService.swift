@@ -19,7 +19,7 @@ public struct NetworkSerivceImpl: NetworkService {
     let session: URLSession
     let decoder: JSONDecoder
     
-    func execute<Model: Decodable>(url: URL, completion: @escaping ((Result<Model, Error>) -> Void)) {
+    public func execute<Model: Decodable>(url: URL, completion: @escaping ((Result<Model, Error>) -> Void)) {
         
         session.dataTask(with: url) { data , response, error in
             
@@ -54,7 +54,7 @@ public struct NetworkSerivceImpl: NetworkService {
 
 public struct AFNetworkServiceImpl: NetworkService {
     
-    func execute<Model>(url: URL, completion: @escaping ((Result<Model, Error>) -> Void)) where Model : Decodable {
+    public func execute<Model>(url: URL, completion: @escaping ((Result<Model, Error>) -> Void)) where Model : Decodable {
         
         let request = AF.request(url)
         request.responseDecodable(of: Model.self) { dataResponse in
